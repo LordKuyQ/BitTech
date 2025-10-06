@@ -1,4 +1,4 @@
-﻿<!-- AddMasterToRequestWindow.xaml -->
+﻿
 <Window x:Class="BitTech.AddMasterToRequestWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,14 +8,10 @@
         <StackPanel>
             <TextBlock  Text="Мастер:" Margin="0,0,0,5"/>
             <ComboBox Name="comboBoxMasters" Margin="0,0,0,10"/>
-
             <TextBlock  Text="Комментарий:" Margin="0,0,0,5"/>
             <TextBox Name="textBoxComment" Height="80" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
-
-            <StackPanel Orientation="Horizontal">
-                <Button Name="buttonAdd" Content="Добавить" Click="AddMasterClick" Margin="0,0,10,0" Width="80"/>
-                <Button Name="buttonCancel" Content="Отмена" Click="CancelClick" Width="80"/>
-            </StackPanel>
+            <Button Name="buttonAdd" Content="Добавить" Click="AddMasterClick"/>
+            <Button Name="Back" Content="Вернуться назад" Click="Back_Click"/>
         </StackPanel>
 
     </Grid>

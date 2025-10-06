@@ -1,11 +1,12 @@
-﻿<Window x:Class="BitTech.AddRequestWindow"
+﻿
+    <Window x:Class="BitTech.AddRequestWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitTech"
         mc:Ignorable="d"
-        Title="AddRequestWindow" Height="350" Width="350">
+        Title="Добавление заявки" Height="350" Width="350">
     <Grid>
         <StackPanel>
             <TextBlock Text="Выберите дату начала" />
@@ -15,16 +16,19 @@
             <TextBlock Text="Введите описание проблемы" />
             <TextBox x:Name="Desc"/>
             <TextBlock Text="Выберите статус" />
+            
             <ComboBox x:Name="Statuses">
                 <ComboBoxItem>Новая заявка</ComboBoxItem>
                 <ComboBoxItem>В работе</ComboBoxItem>
                 <ComboBoxItem>Готово</ComboBoxItem>
             </ComboBox>
+            
             <TextBlock Text="Выберите дату окончания" />
             <DatePicker x:Name="EndDate" />
             <TextBlock Text="Выберите клиента" />
             <ComboBox x:Name="Clients" DisplayMemberPath="Fio"></ComboBox>
             <Button x:Name="AddRequest" Click="AddRequest_Click" Content="Сохранить" />
+            <Button x:Name="Back" Click="Back_Click" Content="Вернуться назад" />
         </StackPanel>
     </Grid>
 </Window>

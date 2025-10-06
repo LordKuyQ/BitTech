@@ -34,6 +34,7 @@ namespace BitTech
                     var Masters = context.Masters.Where(x => x.Login == Login.Text && x.Password == Password.Text).Any();
                     var Operators = context.Operators.Where(x => x.Login == Login.Text && x.Password == Password.Text).Any();
                     var Clients = context.Clients.Where(x => x.Login == Login.Text && x.Password == Password.Text).Any();
+
                     if (Masters)
                     {
                         MainWindow masterMainWindow = new MainWindow();

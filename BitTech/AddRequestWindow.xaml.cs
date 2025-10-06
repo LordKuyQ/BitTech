@@ -54,16 +54,23 @@ namespace BitTech
                         Request.CompletionDate = DateOnly.FromDateTime(EndDate.SelectedDate.Value);
 
                     DialogResult = true;
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Данные введены неверно");
+                    MessageBox.Show("Неверные данные");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
         }
     }
 }

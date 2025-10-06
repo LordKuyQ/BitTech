@@ -5,50 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitTech"
         mc:Ignorable="d"
-        Title="OperatorWindow" Height="450" Width="800">
+        Title="Окно оператора" Height="450" Width="900">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
                 <Button Name="AddRequest" Click="AddRequestClick">Добавить заявку</Button>
                 <Button Name="AddMasterToRequest" Click="AddMasterToRequestClick">Добавить мастера</Button>
             </StackPanel>
-            <ListBox Name="listBoxRequests">
+        <ListBox Name="listBoxRequests" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontWeight="Bold" Text="{Binding RequestId, StringFormat='Заявка № {0}'}"/>
-                        <TextBlock Text="{Binding StartDate, StringFormat='Дата начала: {0:dd.MM.yyyy}'}"/>
-                        <TextBlock Text="{Binding CompletionDate, StringFormat='Дата завершения: {0:dd.MM.yyyy}'}"/>
-                        <TextBlock Text="{Binding RequestStatus, StringFormat='Статус: {0}'}"/>
-                        <TextBlock Text="{Binding ProblemDescryption, StringFormat='Описание проблемы: {0}'}"/>
-                        <TextBlock Text="{Binding Client.Fio, StringFormat='Клиент: {0}'}"/>
-                        <TextBlock Text="{Binding Equipment.HomeTechType, StringFormat='Тип техники: {0}'}"/>
-                        <TextBlock Text="{Binding Equipment.HomeTechModel, StringFormat='Модель: {0}'}"/>
-
-                        <TextBlock Text="Мастера:" FontWeight="SemiBold"/>
-                        <ItemsControl ItemsSource="{Binding Comments}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Margin="10,2,0,2">
-                                        <TextBlock Text="{Binding Master.Fio, StringFormat='• {0}'}"/>
-                                        <TextBlock Text="{Binding Message}" FontStyle="Italic" Margin="10,0,0,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-
-                        <TextBlock Text="Детали:" FontWeight="SemiBold"/>
-                        <ItemsControl ItemsSource="{Binding DetailRequests}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Detail.Name}" Margin="10,2,0,2"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock FontWeight="Bold" Text="{Binding RequestId, StringFormat='Заявка № {0}'}"/>
+                            <TextBlock Text="{Binding StartDate, StringFormat='Дата начала: {0:dd.MM.yyyy}'}"/>
+                            <TextBlock Text="{Binding CompletionDate, StringFormat='Дата завершения: {0:dd.MM.yyyy}'}"/>
+                            <TextBlock Text="{Binding RequestStatus, StringFormat='Статус: {0}'}"/>
+                            <TextBlock Text="{Binding ProblemDescryption, StringFormat='Описание проблемы: {0}'}"/>
+                            <TextBlock Text="{Binding Client.Fio, StringFormat='Клиент: {0}'}"/>
+                            <TextBlock Text="{Binding Equipment.HomeTechType, StringFormat='Тип техники: {0}'}"/>
+                            <TextBlock Text="{Binding Equipment.HomeTechModel, StringFormat='Модель: {0}'}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="Мастера:" FontWeight="SemiBold"/>
+                            <ItemsControl ItemsSource="{Binding Comments}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="10,2,0,2">
+                                            <TextBlock Text="{Binding Master.Fio, StringFormat='• {0}'}"/>
+                                            <TextBlock Text="{Binding Message}" FontStyle="Italic" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Text="Детали:" FontWeight="SemiBold"/>
+                            <ItemsControl ItemsSource="{Binding DetailRequests}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Detail.Name}" Margin="10,2,0,2"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>  
-        </StackPanel>
+        </ListBox>
     </Grid>
 </Window>

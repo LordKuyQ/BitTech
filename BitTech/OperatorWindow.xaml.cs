@@ -52,34 +52,30 @@ namespace BitTech
         private void AddRequestClick(object sender, RoutedEventArgs e)
         {
             AddRequestWindow addRequestWindow = new AddRequestWindow();
-            if (addRequestWindow.ShowDialog() != true)
+            if (addRequestWindow.ShowDialog() == true)
             { 
-                return; 
-            }
-
-            try
-            {
-                using (var context = new Database())
+                try
                 {
-                    context.Requests.Add(addRequestWindow.Request);
-                    context.SaveChanges();
-                    LoadRequests();
-                    MessageBox.Show("Заявка добавлена");
+                    using (var context = new Database())
+                    {
+                        context.Requests.Add(addRequestWindow.Request);
+                        context.SaveChanges();
+                        LoadRequests();
+                        MessageBox.Show("Заявка добавлена");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка загрузки: {ex.Message}");
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка загрузки: {ex.Message}");
-            }
-
-           
         }
 
         private void AddMasterToRequestClick(object sender, RoutedEventArgs e)
         {
             if (listBoxRequests.SelectedItem == null)
             {
-                MessageBox.Show("Выберите заявку для добавления мастера.");
+                MessageBox.Show("Заявка не выбрана");
                 return;
             }
 
@@ -95,7 +91,7 @@ namespace BitTech
                         context.Comments.Add(addMasterWindow.NewComment);
                         context.SaveChanges();
                         LoadRequests();
-                        MessageBox.Show("Мастер добавлен к заявке.");
+                        MessageBox.Show("Мастер добавлен");
                     }
                 }
                 catch (Exception ex)

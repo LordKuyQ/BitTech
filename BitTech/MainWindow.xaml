@@ -5,13 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BitTech"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Окно клиента" Height="450" Width="350">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Grid>
-                <Button Name="AddRequest" Click="AddRequestClick">Добавить заявку</Button>
-            </Grid>
-            
-        </StackPanel>
+        <Button Name="AddRequest" Click="AddRequestClick" Width="180" Height="30">Добавить заявку</Button>
     </Grid>
 </Window>

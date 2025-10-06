@@ -20,7 +20,6 @@ namespace BitTech
         private readonly Database _context;
         private readonly Request _request;
         public Comment NewComment { get; private set; }
-
         public AddMasterToRequestWindow(Request request)
         {
             InitializeComponent();
@@ -47,24 +46,22 @@ namespace BitTech
         {
             if (comboBoxMasters.SelectedItem == null)
             {
-                MessageBox.Show("Выберите мастера.");
+                MessageBox.Show("Выберите мастера");
                 return;
             }
-
             var selectedMaster = (Master)comboBoxMasters.SelectedItem;
-
             NewComment = new Comment
             {
                 RequestId = _request.RequestId,
                 MasterId = selectedMaster.Id,
                 Message = textBoxComment.Text
             };
-
             DialogResult = true;
             Close();
         }
 
-        private void CancelClick(object sender, RoutedEventArgs e)
+        
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             Close();
